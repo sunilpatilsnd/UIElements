@@ -1,32 +1,23 @@
 import "../css/style.css";
-import { homeContent } from "./home.js";
-import { menuContent } from "./menu.js";
-import { aboutContent } from "./about.js";
+const { toggleDropdown } = require("./dropdown.js");
+const { setCarousel } = require("./carousel.js");
 
-const container = document.querySelector("#content");
-container.appendChild(homeContent);
-
-const homeBtn = document.querySelector("#homePage");
-const menuBtn = document.querySelector("#menuPage");
-const aboutBtn = document.querySelector("#aboutPage");
-
-homeBtn.addEventListener("click", () => {
-  clearContent();
-  container.appendChild(homeContent);
-});
-
-menuBtn.addEventListener("click", () => {
-  clearContent();
-  container.appendChild(menuContent);
-});
-
-aboutBtn.addEventListener("click", () => {
-  clearContent();
-  container.appendChild(aboutContent);
-});
-
-const clearContent = () => {
-  while (container.firstChild) {
-    container.firstChild.remove();
-  }
+const demo1 = () => {
+  const btn = document.querySelector("#menuBtn");
+  const menu = document.querySelector("#menu");
+  toggleDropdown(btn, menu);
 };
+
+const demo2 = () => {
+  const btn = document.querySelector("#footerMenuBtn");
+  const menu = document.querySelector("#footerMenu");
+
+  toggleDropdown(btn, menu);
+};
+
+demo1();
+demo2();
+
+const carousel = document.querySelector(".carousel");
+
+setCarousel(carousel);
